@@ -1,0 +1,99 @@
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background: var(--bg-color);
+
+    .auth-container {
+        width: 100%;
+        max-width: 400px;
+        padding: 2rem;
+        border-radius: 8px;
+        background-color: var(--card-bg);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: opacity 0.5s ease-in-out;
+
+        &.fade-out {
+            opacity: 0;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+                margin-bottom: 1rem;
+                color: var(--purple);
+                font-weight: bold;
+                font-size: 2rem;
+            }
+
+            .error-message {
+                color: red;
+                font-size: 0.9rem;
+            }
+
+            .success-message {
+                color: green;
+                font-size: 0.9rem;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+
+                .form-group {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    margin-bottom: 1rem;
+                    width: 100%;
+
+                    label {
+                        font-weight: bold;
+                        margin-bottom: 0.3rem;
+                        color: var(--navbar-text);
+                    }
+
+                    input,
+                    select {
+                        width: 100%;
+                        padding: 0.5rem;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                    }
+                }
+
+                button {
+                    padding: 10px 20px;
+                    border: none;
+                    background-color: var(--add-bg);
+                    color: var(--navbar-text);
+                    cursor: pointer;
+                    border-radius: 4px;
+                    font-weight: bold;
+                    font-size: 17px;
+                    width: fit-content;
+                    margin: 1rem auto;
+
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.2);
+                    }
+                }
+            }
+
+            .toggle-text {
+                margin-top: 1rem;
+                color: var(--golden);
+                cursor: pointer;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: var(--purple);
+                }
+            }
+        }
+    }
+}

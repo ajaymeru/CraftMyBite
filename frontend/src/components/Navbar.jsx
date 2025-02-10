@@ -15,6 +15,7 @@ const Navbar = () => {
   });
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const [role, setRole] = useState(null);
 
   useEffect(() => {
@@ -54,19 +55,18 @@ const Navbar = () => {
   } else if (role === 'admin' || role === 'manager') {
     navLinks = [
       { label: 'Home', path: '/' },
-      { label: 'MenuItems', path: '/manage-menu' },
-      { label: 'Order Req', path: '/manage-order' },
+      { label: 'Manage Menu', path: '/manage-menu' },
+      { label: 'Manage Orders', path: '/manage-order' },
     ];
   } else {
-    navLinks = [
-      { label: 'Home', path: '/' },
-    ];
+    navLinks = [{ label: 'Home', path: '/' }];
   }
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     setRole(null);
     navigate('/');
+    window.location.reload();
   };
 
   return (
@@ -83,11 +83,10 @@ const Navbar = () => {
             key={index}
             to={link.path}
             onClick={handleLinkClick}
-            className={({ isActive }) => isActive ? 'active-link' : ''}
+            className={({ isActive }) => (isActive ? 'active-link' : '')}
           >
             {link.label}
           </NavLink>
-
         ))}
       </div>
 
@@ -108,14 +107,9 @@ const Navbar = () => {
             Logout
           </button>
         ) : (
-          <>
-            <Link to="/signup" className="navbar-btn" onClick={handleLinkClick}>
-              Sign Up
-            </Link>
-            <Link to="/login" className="navbar-btn" onClick={handleLinkClick}>
-              Login
-            </Link>
-          </>
+          <Link to="/auth" className="navbar-btn" onClick={handleLinkClick}>
+            Sign In / Up
+          </Link>
         )}
 
         <div className="navbar-hamburger" onClick={toggleMobileMenu}>
@@ -129,7 +123,7 @@ const Navbar = () => {
             key={index}
             to={link.path}
             onClick={handleLinkClick}
-            className={({ isActive }) => isActive ? 'active-link' : ''}
+            className={({ isActive }) => (isActive ? 'active-link' : '')}
           >
             {link.label}
           </NavLink>
@@ -147,17 +141,11 @@ const Navbar = () => {
             Logout
           </button>
         ) : (
-          <>
-            <Link to="/signup" className="navbar-btn" onClick={handleLinkClick}>
-              Sign Up
-            </Link>
-            <Link to="/login" className="navbar-btn" onClick={handleLinkClick}>
-              Login
-            </Link>
-          </>
+          <Link to="/auth" className="navbar-btn" onClick={handleLinkClick}>
+            Sign In / Up
+          </Link>
         )}
       </div>
-
     </nav>
   );
 };
