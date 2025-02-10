@@ -11,6 +11,9 @@
     h3 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
+      span.username {
+        color: var(--golden);
+    }
     }
 
     .category-slider {
@@ -87,6 +90,9 @@
       h2 {
         font-size: 1.8rem;
         margin-bottom: 1rem;
+        span.location {
+          color: var(--golden);
+      }
       }
 
       .items {

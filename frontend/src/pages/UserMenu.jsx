@@ -33,7 +33,7 @@ const UserMenu = () => {
       }
       try {
         await axios.patch(
-          `${BASE_URL}/api/menu/cart`,  
+          `${BASE_URL}/api/menu/cart`,
           { menuItem: itemId, quantity },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -168,9 +168,9 @@ const UserMenu = () => {
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 3,
-    autoplay: true, 
+    autoplay: true,
     autoplaySpeed: 2000,
-    
+
     responsive: [
       {
         breakpoint: 1024,
@@ -178,7 +178,7 @@ const UserMenu = () => {
           slidesToShow: 4,
           slidesToScroll: 3,
           autoplay: true,
-          autoplaySpeed: 2500,  // Adjust speed for smaller screens
+          autoplaySpeed: 2500,
         }
       },
       {
@@ -235,9 +235,13 @@ const UserMenu = () => {
     <div className="UserMenu">
       <div className="categories">
         <h3>
-          {user?.username
-            ? `${user.username}, what's on your mind?`
-            : "Welcome! What's on your mind?"}
+          {user?.username ? (
+            <>
+              <span className="username">{user.username}</span>, what's on your mind?
+            </>
+          ) : (
+            "Welcome! What's on your mind?"
+          )}
         </h3>
         <div className="category-slider">
           <Slider {...sliderSettings}>
@@ -257,7 +261,9 @@ const UserMenu = () => {
         </div>
 
         <div className="menu-items">
-          <h2>Best dishes near {location}</h2>
+          <h2>
+            Best dishes near <span className="location">{location}</span>
+          </h2>
           <div className="items">
             {items.map(item => {
               const itemQuantity = quantities[item._id] || 0;
