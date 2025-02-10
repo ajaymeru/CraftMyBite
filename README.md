@@ -25,7 +25,7 @@ CraftMyBite is a role-based menu management system built using the **MERN stack*
 ---
 
 ## 🏗️ Tech Stack
-- **Frontend**: React, Vite, Tailwind CSS
+- **Frontend**: React, Vite, scss
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **Authentication**: JWT (JSON Web Tokens)
