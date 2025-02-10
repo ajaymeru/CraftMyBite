@@ -8,7 +8,7 @@ const app = express();
 const allowedOrigins = [
     "http://localhost:5173",
     "http://192.168.1.13:5173",
-    "https://yourproductiondomain.com"
+    "https://craft-my-bite-9rd9.vercel.app/"
 ];
 
 const corsoptions = {
