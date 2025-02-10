@@ -12,11 +12,13 @@ const allowedOrigins = [
 ];
 
 const corsoptions = {
-    origin: allowedOrigins,
+    origin: "*",  // Allow all origins
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
 };
+app.options("*", cors(corsoptions)); // Handle preflight requests globally
 app.use(cors(corsoptions));
+
 
 app.use(express.json());
 
