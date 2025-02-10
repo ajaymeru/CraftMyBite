@@ -79,15 +79,15 @@ const Navbar = () => {
 
       <div className="navbar-middle desktop-menu">
         {navLinks.map((link, index) => (
-          <NavLink 
-          key={index} 
-          to={link.path} 
-          onClick={handleLinkClick} 
-          className={({ isActive }) => isActive ? 'active-link' : ''}
-        >
-          {link.label}
-        </NavLink>
-        
+          <NavLink
+            key={index}
+            to={link.path}
+            onClick={handleLinkClick}
+            className={({ isActive }) => isActive ? 'active-link' : ''}
+          >
+            {link.label}
+          </NavLink>
+
         ))}
       </div>
 
@@ -125,17 +125,39 @@ const Navbar = () => {
 
       <div className={`navbar-mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
         {navLinks.map((link, index) => (
-        <NavLink 
-        key={index} 
-        to={link.path} 
-        onClick={handleLinkClick} 
-        className={({ isActive }) => isActive ? 'active-link' : ''}
-      >
-        {link.label}
-      </NavLink>
-      
+          <NavLink
+            key={index}
+            to={link.path}
+            onClick={handleLinkClick}
+            className={({ isActive }) => isActive ? 'active-link' : ''}
+          >
+            {link.label}
+          </NavLink>
         ))}
+
+        {role === 'user' && (
+          <Link to="/cart" className="navbar-btn cart-icon" onClick={handleLinkClick}>
+            <FaShoppingCart />
+            {cartQuantity > 0 && <span className="cart-quantity">{cartQuantity}</span>}
+          </Link>
+        )}
+
+        {role ? (
+          <button className="navbar-btn" onClick={handleLogout}>
+            Logout
+          </button>
+        ) : (
+          <>
+            <Link to="/signup" className="navbar-btn" onClick={handleLinkClick}>
+              Sign Up
+            </Link>
+            <Link to="/login" className="navbar-btn" onClick={handleLinkClick}>
+              Login
+            </Link>
+          </>
+        )}
       </div>
+
     </nav>
   );
 };
