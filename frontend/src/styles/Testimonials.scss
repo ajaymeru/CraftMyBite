@@ -1,0 +1,121 @@
+.Testimonials {
+    width: 80%;
+    margin: 0 auto;
+    padding: 3rem 0;
+
+    h2{
+        text-align: center;
+        margin-bottom: 2vh;
+    }
+
+    .slick-list {
+        padding: 1.5rem 0;
+    }
+
+    .slick-slide>div {
+        padding: 0 0.5rem;
+    }
+
+    .slick-slide {
+        display: flex !important;
+        justify-content: center;
+    }
+
+    .testimonial-card {
+        background: var(--card-bg);
+        color: var(--text-color);
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin: 0 0.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        max-width: 250px;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-bottom: 0.5rem;
+            object-fit: cover;
+            border: 2px solid var(--card-border);
+            margin: 0 auto;
+        }
+
+        h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .location {
+            font-size: 0.85rem;
+            color: var(--card-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .review {
+            font-style: italic;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin: 0.5rem 0;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rating {
+            font-weight: bold;
+            color: gold;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+    }
+
+    .slick-prev,
+    .slick-next {
+        width: 40px;
+        height: 40px;
+        z-index: 10;
+    }
+
+    .slick-prev {
+        left: 0;
+    }
+
+    .slick-next {
+        right: -0;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: var(--text-color);
+        font-size: 25px;
+    }
+
+    .slick-dots li button:before {
+        color: var(--text-color);
+        font-size: 10px;
+        opacity: 0.5;
+    }
+
+    .slick-dots li.slick-active button:before {
+        opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+        width: 90%;
+        padding: 2rem 0;
+
+        .testimonial-card {
+            max-width: 220px;
+            padding: 1rem;
+        }
+    }
+}

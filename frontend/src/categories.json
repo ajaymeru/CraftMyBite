@@ -1,0 +1,81 @@
+{
+    "List": [
+      {
+        "name": "Biryani",
+        "image": "/assets/biryani.jpg"
+      },
+      {
+        "name": "Mandi",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVdJiK-32CDSy4q8Kyk84Q0741kttmLYq8QQ&s"
+      },
+      {
+        "name": "Juices",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsMsIoPKPth53kKVd_IagoggEEhI0BZ77i4w&s"
+      },
+      {
+        "name": "Starters",
+        "image": "https://www.shutterstock.com/image-photo/indian-tandoori-chicken-items-best-600nw-2189792441.jpg"
+      },
+      {
+        "name": "Thali",
+        "image": "https://media.istockphoto.com/id/1158577428/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=0&k=20&c=Fk9UFrt3tpWr15K-Hzeb0bJ2i61zRg67K6flXwpHU0E="
+      },
+      {
+        "name": "North Indian",
+        "image": "/assets/NorthThali.jpg"
+      },
+      {
+        "name": "South Indian",
+        "image": "/assets/SouthThali.png"
+      },
+      {
+        "name": "Tandoori",
+        "image": "https://www.shutterstock.com/image-photo/indian-style-tandoori-chicken-on-600nw-2411278339.jpg"
+      },
+      {
+        "name": "Desserts",
+        "image": "https://w0.peakpx.com/wallpaper/467/393/HD-wallpaper-food-dessert-still-life-thumbnail.jpg"
+      },
+      {
+        "name": "Street Food",
+        "image": "https://w0.peakpx.com/wallpaper/805/956/HD-wallpaper-food-delicious-food-food-holidays-indian-indian-food-pav-bhaji-spicy-food-street-food-thumbnail.jpg"
+      },
+      {
+        "name": "Fast Food",
+        "image": "https://c4.wallpaperflare.com/wallpaper/672/503/735/fast-food-junk-food-food-hamburger-wallpaper-thumb.jpg"
+      },
+      {
+        "name": "Seafood",
+        "image": "https://example.com/images/seafood.jpg"
+      },
+      {
+        "name": "Mughlai",
+        "image": "https://example.com/images/mughlai.jpg"
+      },
+      {
+        "name": "Rolls",
+        "image": "https://example.com/images/rolls.jpg"
+      },
+      {
+        "name": "Sandwiches",
+        "image": "https://example.com/images/sandwiches.jpg"
+      },
+      {
+        "name": "Pizzas",
+        "image": "https://example.com/images/pizzas.jpg"
+      },
+      {
+        "name": "Burgers",
+        "image": "https://example.com/images/burgers.jpg"
+      },
+      {
+        "name": "Kebabs",
+        "image": "https://example.com/images/kebabs.jpg"
+      },
+      {
+        "name": "Wraps",
+        "image": "https://example.com/images/wraps.jpg"
+      }
+    ]
+  }
+  

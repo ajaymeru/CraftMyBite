@@ -1,0 +1,175 @@
+// _animations.scss
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  // _mixins.scss
+  @mixin card-style {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--card-text);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  // MenuItems.scss
+  .menu-items {
+    padding: 2rem;
+    animation: fadeIn 0.5s ease-in;
+  
+    button {
+      @include card-style;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      margin: 0.5rem;
+      border: none;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+  
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+  
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+  
+    .menu-item {
+      @include card-style;
+      padding: 1.5rem;
+      animation: slideIn 0.3s ease-out;
+  
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      }
+  
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+      }
+  
+      h3 {
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+      }
+  
+      .admin-controls {
+        margin-top: 1rem;
+        display: flex;
+        gap: 0.5rem;
+  
+        button:first-child {
+          background: #4CAF50;
+          color: white;
+        }
+  
+        button:last-child {
+          background: #f44336;
+          color: white;
+        }
+      }
+    }
+  
+    .form-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.3s ease-out;
+  
+      form {
+        @include card-style;
+        padding: 2rem;
+        width: 90%;
+        max-width: 500px;
+        animation: slideIn 0.3s ease-out;
+  
+        input, label {
+          display: block;
+          width: 100%;
+          margin: 0.5rem 0;
+          color: var(--text-color);
+        }
+  
+        input[type="text"],
+        input[type="number"] {
+          padding: 0.5rem;
+          background: var(--bg-color);
+          border: 1px solid var(--card-border);
+          border-radius: 4px;
+        }
+  
+        input[type="file"] {
+          padding: 0.5rem 0;
+        }
+      }
+    }
+  
+    .loading {
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+      
+      &::after {
+        content: "";
+        width: 40px;
+        height: 40px;
+        border: 4px solid var(--text-color);
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+    }
+  
+    .error {
+      color: #ff4444;
+      text-align: center;
+      padding: 2rem;
+      animation: slideIn 0.3s ease-out;
+    }
+  }
+  
+  // Responsive Design
+  @media (max-width: 768px) {
+    .menu-items {
+      padding: 1rem;
+      
+      .items-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+  
+      .form-modal form {
+        width: 95%;
+        padding: 1rem;
+      }
+    }
+  }

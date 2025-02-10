@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #fff;
+  --text-color: #333;
+  --navbar-bg: #fff;
+  --navbar-text: #333;
+  --footer-bg: #f1f1f1;
+  --footer-text: #333;
+  --card-bg: #f9f9f9;
+  --card-border: #ddd;
+  --card-text: #555;
+  --golden: #711EC6;
+  --purple:#711EC6;
+  --add-bg:green;
+  --add-text:white;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+  --bg-color: #333;
+  --text-color: #fff;
+  --navbar-bg: #444;
+  --navbar-text: #fff;
+  --footer-bg: #444;
+  --footer-text: #fff;
+  --card-bg: #444;
+  --card-border: #666;
+  --card-text: #ccc;
+  --golden: #F7C034;
+  --purple:#a360e5;
+  --add-bg:green;
+  --add-text:white;
+}
