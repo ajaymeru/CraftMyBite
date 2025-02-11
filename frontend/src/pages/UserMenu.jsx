@@ -6,6 +6,8 @@ import { List } from "../categories.json"
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const debounce = (func, delay) => {
   let timeoutId;
@@ -43,6 +45,10 @@ const UserMenu = () => {
       }
     }, 100)
   );
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
 
   useEffect(() => {
     const getUserProfile = async () => {
@@ -268,7 +274,12 @@ const UserMenu = () => {
             {items.map(item => {
               const itemQuantity = quantities[item._id] || 0;
               return (
-                <div className="item" key={item._id}>
+                <div className="item"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                  data-aos-delay="500"
+                  data-aos-easing="ease-in"
+                  key={item._id}>
                   <img src={item.imageUrl} alt={item.name} />
                   <div className="info">
                     <h3>{item.name}</h3>

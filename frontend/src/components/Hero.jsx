@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "../styles/Hero.scss"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Hero = () => {
+    useEffect(() => {
+        AOS.init();
+    }, [])
     return (
         <div className='Hero'>
-            <div className="left">
+            <div className="left"
+                data-aos="fade-right"
+                data-aos-duration="1000"
+                data-aos-delay="300" 
+                data-aos-easing="ease-in-sine"
+            >
                 <div className="head">
                     <p>Currently Serving in Hyderabad</p>
                     <h3>INDIA'S FIRST FOOD CATERING APP</h3>
@@ -18,7 +28,12 @@ const Hero = () => {
                     <button>Order Now</button>
                 </div>
             </div>
-            <div className="right">
+            <div className="right"
+                data-aos="fade-left"
+                 data-aos-duration="1000"
+                 data-aos-delay="300" 
+                data-aos-easing="ease-in-sine"
+            >
                 <img src="/assets/CMP.png" alt="" />
             </div>
         </div>
