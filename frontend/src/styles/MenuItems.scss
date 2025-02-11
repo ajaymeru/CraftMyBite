@@ -1,4 +1,3 @@
-// _animations.scss
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -14,7 +13,6 @@
     100% { transform: rotate(360deg); }
   }
   
-  // _mixins.scss
   @mixin card-style {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
@@ -23,7 +21,6 @@
     transition: all 0.3s ease;
   }
   
-  // MenuItems.scss
   .menu-items {
     padding: 2rem;
     animation: fadeIn 0.5s ease-in;
@@ -45,7 +42,10 @@
         cursor: not-allowed;
       }
     }
-  
+    .create{
+      background-color: var(--golden);
+      color: var(--bg-color);
+    }
     .items-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -101,9 +101,11 @@
       bottom: 0;
       background: rgba(0,0,0,0.5);
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       animation: fadeIn 0.3s ease-out;
+      z-index: 1000;
   
       form {
         @include card-style;
@@ -129,6 +131,15 @@
   
         input[type="file"] {
           padding: 0.5rem 0;
+        }
+
+        .true{
+          background-color: var(--add-bg);
+          color: var(--add-text);
+        }
+        .false{
+          background: #f44336;
+          color: white;
         }
       }
     }
@@ -157,7 +168,6 @@
     }
   }
   
-  // Responsive Design
   @media (max-width: 768px) {
     .menu-items {
       padding: 1rem;

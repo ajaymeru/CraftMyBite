@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../../config';
 import '../styles/OrderReq.scss';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const OrderReq = () => {
   const [orders, setOrders] = useState([]);
@@ -22,14 +24,16 @@ const OrderReq = () => {
       setLoading(false);
     }
   };
-
+  useEffect(() => {
+    AOS.init();
+  }, [])
   useEffect(() => {
     fetchOrders();
   }, []);
 
   const updateStatus = async (orderId, newStatus) => {
     try {
-      await axios.put(`${BASE_URL}/api/order/${orderId}/status`, 
+      await axios.put(`${BASE_URL}/api/order/${orderId}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -48,12 +52,12 @@ const OrderReq = () => {
   return (
     <div className="OrderReq">
       <h2>Order Requests</h2>
-      
+
       <div className="orders-section">
         <h3>Pending Orders</h3>
         {pendingOrders.length > 0 ? (
           pendingOrders.map(order => (
-            <div key={order._id} className="order-card">
+            <div key={order._id} className="order-card" data-aos="zoom-in-up">
               <div className="order-header">
                 <p><strong>Order ID:</strong> {order._id}</p>
                 <p><strong>Total:</strong> ${order.totalAmount.toFixed(2)}</p>
@@ -89,7 +93,7 @@ const OrderReq = () => {
         <h3>Completed Orders</h3>
         {completedOrders.length > 0 ? (
           completedOrders.map(order => (
-            <div key={order._id} className="order-card">
+            <div key={order._id} className="order-card" data-aos="zoom-in-up">
               <div className="order-header">
                 <p><strong>Order ID:</strong> {order._id}</p>
                 <p><strong>Total:</strong> ${order.totalAmount.toFixed(2)}</p>

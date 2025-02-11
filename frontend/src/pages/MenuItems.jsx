@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../../config';
 import '../styles/MenuItems.scss';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const MenuItems = () => {
+      useEffect(() => {
+          AOS.init();
+      }, [])
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -107,7 +112,6 @@ const MenuItems = () => {
         { menuItem: itemId, quantity: 1 },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      // Optionally show success message
     } catch (err) {
       setError('Failed to add to cart');
     }
@@ -119,11 +123,11 @@ const MenuItems = () => {
   return (
     <div className="menu-items">
       {role === 'admin' && (
-        <button onClick={() => setShowCreateForm(true)}>Create New Item</button>
+        <button className='create' onClick={() => setShowCreateForm(true)}>Create New Item</button>
       )}
 
       {showCreateForm && (
-        <div className="form-modal">
+        <div className="form-modal" data-aos="flip-up">
           <h3>Create New Item</h3>
           <form onSubmit={handleCreate}>
             <input
@@ -158,8 +162,8 @@ const MenuItems = () => {
               type="file"
               onChange={(e) => setNewItem({...newItem, image: e.target.files[0]})}
             />
-            <button type="submit">Create</button>
-            <button type="button" onClick={() => setShowCreateForm(false)}>
+            <button className='true' type="submit">Create</button>
+            <button className='false' type="button" onClick={() => setShowCreateForm(false)}>
               Cancel
             </button>
           </form>
@@ -167,7 +171,7 @@ const MenuItems = () => {
       )}
 
       {editingItem && (
-        <div className="form-modal">
+        <div className="form-modal" data-aos="flip-up">
           <h3>Edit Item</h3>
           <form onSubmit={handleUpdate}>
             <input
@@ -199,8 +203,8 @@ const MenuItems = () => {
               type="file"
               onChange={(e) => setEditingItem({...editingItem, image: e.target.files[0]})}
             />
-            <button type="submit">Save</button>
-            <button type="button" onClick={() => setEditingItem(null)}>
+            <button className='true' type="submit">Save</button>
+            <button className='false' type="button" onClick={() => setEditingItem(null)}>
               Cancel
             </button>
           </form>
@@ -209,7 +213,7 @@ const MenuItems = () => {
 
       <div className="items-grid">
         {items.map((item) => (
-          <div key={item._id} className="menu-item">
+          <div key={item._id} className="menu-item" data-aos="zoom-in-up">
             <img src={item.imageUrl} alt={item.name} />
             <h3>{item.name}</h3>
             <p>Category: {item.category}</p>
