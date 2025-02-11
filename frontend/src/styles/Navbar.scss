@@ -118,13 +118,16 @@
       &.desktop-menu {
         display: none;
       }
+      
     }
 
     .navbar-right {
       .navbar-btn {
         display: none;
       }
-
+      .cart-icon{
+        display: block;
+      }
       .navbar-hamburger {
         display: block;
       }

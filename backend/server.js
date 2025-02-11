@@ -12,11 +12,11 @@ const allowedOrigins = [
 ];
 
 const corsoptions = {
-    origin: "*",  // Allow all origins
+    origin: "*",  
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
 };
-app.options("*", cors(corsoptions)); // Handle preflight requests globally
+app.options("*", cors(corsoptions)); 
 app.use(cors(corsoptions));
 
 
@@ -32,8 +32,6 @@ app.use("/api/users", userRoutes);
 app.use("/api/menu", menuRoutes);
 app.use("/api/order", orderRoutes);
 
-// Remove app.listen() since Vercel will invoke your exported function.
-// If you need local testing, you can conditionally call app.listen() as shown below:
 if (!process.env.VERCEL) {
     const port = process.env.PORT || 5000;
     app.listen(port, () => {

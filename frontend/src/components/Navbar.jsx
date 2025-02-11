@@ -129,12 +129,12 @@ const Navbar = () => {
           </NavLink>
         ))}
 
-        {role === 'user' && (
+        {/* {role === 'user' && (
           <Link to="/cart" className="navbar-btn cart-icon" onClick={handleLinkClick}>
             <FaShoppingCart />
             {cartQuantity > 0 && <span className="cart-quantity">{cartQuantity}</span>}
           </Link>
-        )}
+        )} */}
 
         {role ? (
           <button className="navbar-btn" onClick={handleLogout}>
