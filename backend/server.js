@@ -12,13 +12,19 @@ const allowedOrigins = [
 ];
 
 const corsoptions = {
-    origin: "*",  
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("CORS Policy Error: This origin is not allowed."));
+        }
+    },
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
 };
-app.options("*", cors(corsoptions)); 
-app.use(cors(corsoptions));
 
+app.use(cors(corsoptions));
+app.options("*", cors(corsoptions)); 
 
 app.use(express.json());
 
